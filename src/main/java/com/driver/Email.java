@@ -2,7 +2,7 @@ package com.driver;
 
 public class Email {
 
-    private String emailId;
+    private String  emailId;
     private String password;
 
     public Email(String emailId){
@@ -18,6 +18,8 @@ public class Email {
         return password;
     }
 
+
+
     public void changePassword(String oldPassword, String newPassword){
         //Change password only if the oldPassword is equal to current password and the new password meets all of the following:
         // 1. It contains at least 8 characters
@@ -25,5 +27,34 @@ public class Email {
         // 3. It contains at least one lowercase letter
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
+        if(oldPassword.equals(newPassword) && newPassword.length()>=8){
+            if(check(newPassword)==true){
+                this.password=newPassword;
+                System.out.println("New Password Added successfully");
+
+            }
+        }
+    }
+    public boolean check(String newPass){
+        int U =0,L=0,D=0,S=0;
+        for(int i = 0;i<newPass.length();i++){
+            char ch = newPass.charAt(i);
+            if(ch>='A' && ch<='Z'){
+                U++;
+            }
+            else if(ch>='a' && ch<='z'){
+                L++;
+            }
+            else if(ch>='0' && ch<='9'){
+                D++;
+            }
+            else{
+                S++;
+            }
+        }
+        if(U>=1 && L>=0 && D>=1 && S>1){
+            return true;
+        }
+        return false;
     }
 }
