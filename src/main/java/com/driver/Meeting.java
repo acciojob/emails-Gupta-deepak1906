@@ -10,6 +10,7 @@ public class Meeting {
         this.startTime = startTime;
         this.endTime = endTime;
     }
+    //email
 
     public LocalTime getStartTime() {
         return startTime;
