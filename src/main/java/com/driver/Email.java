@@ -52,7 +52,7 @@ public class Email {
                 S++;
             }
         }
-        if(U>=1 && L>=0 && D>=1 && S>1){
+        if(U>=1 && L>=1 && D>=1 && S>1){
             return true;
         }
         return false;
