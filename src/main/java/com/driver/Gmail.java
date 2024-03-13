@@ -74,9 +74,15 @@ public class Gmail extends Email {
         //find number of mails in the inbox which are received between given dates
         //It is guaranteed that start date <= end date
         int cnt=0;
-        for(Mail mail:Inbox){
-            Date date=mail.getDate();
-            if((date.before(start)) && date.after(end) || (!date.before(start)) && (!date.after(end))){
+      //  for(Mail mail:Inbox){
+        //    Date date=mail.getDate();
+          //  if((date.before(start)) && date.after(end) || (!date.before(start)) && (!date.after(end))){
+            //    cnt++;
+            //}
+        //}
+        for(int i=0;i<Inbox.size();i++){
+            Mail m = Inbox.get(i);
+            if(m.date.compareTo(start)>=0 && m.date.compareTo(end)>=0){
                 cnt++;
             }
         }
@@ -99,7 +105,8 @@ public class Gmail extends Email {
 
     public void emptyTrash(){
         // clear all mails in the trash
-        Trash = new ArrayList<>();
+       // Trash = new ArrayList<>();
+        Trash.clear();
 
     }
 
