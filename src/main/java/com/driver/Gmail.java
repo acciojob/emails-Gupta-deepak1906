@@ -29,7 +29,7 @@ public class Gmail extends Email {
         if(Inbox.size()<inboxCapacity){
             Inbox.addLast(new Mail(date,sender,message));
         }
-        else if(Inbox.size()==inboxCapacity){
+        else if(Inbox.size()>=inboxCapacity){
             Mail m = Inbox.removeFirst();
             Trash.add(m);
             Inbox.addLast(new Mail(date,sender,message));
